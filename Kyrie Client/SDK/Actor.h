@@ -9,6 +9,7 @@
 #include "EntityContext.h"
 #include "Components/RenderPositionComponent.h"
 #include "Level.h"
+#include "GameMode.h"
 
 enum ActorFlags;
 class Mob;
@@ -49,6 +50,7 @@ class Actor {
 public:
 	BUILD_ACCESS(this, EntityContext, entityContext, 0x8);
 	BUILD_ACCESS(this, Level*, level, 0x260);
+	BUILD_ACCESS(this, GameMode*, gameMode, 0x0E70);
 public:
 	RenderPositionComponent* getRenderPositionComponent() {
 		using getRenderPositionComponent = RenderPositionComponent*(__fastcall*)(__int64, EntityId*);

@@ -11,7 +11,7 @@ class Level {
 public:
 
 	std::vector<Actor*> getRuntimeActorList() {
-		return Utils::CallVFunc<291, std::vector<Actor*>>(this);
+		return Utils::CallVFunc<317, std::vector<Actor*>>(this);
 	}
 
 };

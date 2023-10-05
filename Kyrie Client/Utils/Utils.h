@@ -13,7 +13,7 @@ public:
 	static void DebugF(const char* output, ...);
 
 	template <unsigned int IIdx, typename TRet, typename... TArgs>
-	static inline auto CallVFunc(void* thisptr, TArgs... argList) -> TRet {
+	static inline TRet CallVFunc(void* thisptr, TArgs... argList) {
 		//if (thisptr == nullptr)
 		//return nullptr;
 		using Fn = TRet(__thiscall*)(void*, decltype(argList)...);

@@ -2,6 +2,7 @@
 #include "GuiData.h"
 #include "../Utils/Utils.h"
 #include "Player.h"
+#include "LevelRender.h"
 
 class ClientInstance {
 private:
@@ -29,6 +30,10 @@ public:
 
 	Player* getLocalPlayer() {
 		return Utils::CallVFunc<27, Player*>(this);
+	}
+
+	LevelRender* getLevelRender() {
+		return Utils::CallVFunc<196, LevelRender*>(this);
 	}
 
 	void grabMouse() {

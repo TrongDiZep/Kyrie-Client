@@ -31,11 +31,9 @@ Present oPresent;
 
 void Render(ImDrawList* d) {
 	if (ImGui::Begin("Test")) {
-		if (ImGui::Button("Unject")) client->unject();
-		if (ImGui::Button("Grab Mouse")) mc.getClientInstance()->grabMouse();
-		if (ImGui::Button("release Mouse")) mc.getClientInstance()->releasebMouse();
 		//static auto VTable = *(uintptr_t**)mc.getLocalPlayer();
 		//ImGui::Text("%llx", VTable[89]);
+		if (mc.getClientInstance()->getLevelRender() != nullptr) ImGui::Text("%llx",mc.getClientInstance()->getLevelRender());
 	}
 	ImGui::End();
 	

@@ -230,6 +230,7 @@
     <ClInclude Include="SDK\GameMode.h" />
     <ClInclude Include="SDK\GuiData.h" />
     <ClInclude Include="SDK\Level.h" />
+    <ClInclude Include="SDK\LevelRender.h" />
     <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
     <ClInclude Include="SDK\Mob.h" />
     <ClInclude Include="SDK\Player.h" />
