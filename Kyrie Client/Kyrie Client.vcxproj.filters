@@ -284,6 +284,15 @@
     <ClInclude Include="Client\ModuleManager\Modules\Player\BlockReach\BlockReach.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\EntityContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Components\RenderPositionComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

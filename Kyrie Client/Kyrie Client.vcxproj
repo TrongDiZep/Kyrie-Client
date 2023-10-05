@@ -222,9 +222,12 @@
     <ClInclude Include="Memory\Memory.h" />
     <ClInclude Include="SDK\Actor.h" />
     <ClInclude Include="SDK\ClientInstance.h" />
+    <ClInclude Include="SDK\Components\RenderPositionComponent.h" />
+    <ClInclude Include="SDK\EntityContext.h" />
     <ClInclude Include="SDK\FilePath.h" />
     <ClInclude Include="SDK\GameMode.h" />
     <ClInclude Include="SDK\GuiData.h" />
+    <ClInclude Include="SDK\Level.h" />
     <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
     <ClInclude Include="SDK\Mob.h" />
     <ClInclude Include="SDK\Player.h" />

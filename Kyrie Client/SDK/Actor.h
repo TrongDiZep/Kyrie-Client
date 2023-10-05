@@ -1,8 +1,13 @@
 #pragma once
-#include "../Utils/Math.h"
 #include <string>
 #include <vector>
 #include <memory>
+
+#include "../Memory/Memory.h"
+#include "../Utils/Math.h"
+#include "EntityContext.h"
+#include "Components/RenderPositionComponent.h"
+#include "Level.h"
 
 enum ActorFlags;
 class Mob;
@@ -40,6 +45,19 @@ class AnimationComponent;
 enum AnimationComponentGroupType;
 
 class Actor {
+public:
+	EntityContext entityContext; // 0x0008
+public:
+	Level* getLevel() {
+		return *reinterpret_cast<Level**>(reinterpret_cast<__int64>(this) + 0x260);
+	}
+	RenderPositionComponent* getRenderPositionComponent() {
+		using getRenderPositionComponent = RenderPositionComponent*(__fastcall*)(__int64, EntityId*);
+		static getRenderPositionComponent func = reinterpret_cast<getRenderPositionComponent>(Memory::getBase() + 0x2F067E0); //("40 53 48 83 EC ? 48 8B DA BA 6E F3 E8 D4");
+		__int64 registryBase = (__int64)(*reinterpret_cast<void**>(this->entityContext.registry));
+		EntityId id = this->entityContext.id;
+		return func(registryBase, &id);
+	}
 public:
 	virtual __int64 getStatusFlag(ActorFlags);
 	virtual void setStatusFlag(ActorFlags, bool);
