@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "../Utils/Utils.h"
 
 #include "../Memory/Memory.h"
 #include "../Utils/Math.h"
@@ -46,11 +47,9 @@ enum AnimationComponentGroupType;
 
 class Actor {
 public:
-	EntityContext entityContext; // 0x0008
+	BUILD_ACCESS(this, EntityContext, entityContext, 0x8);
+	BUILD_ACCESS(this, Level*, level, 0x260);
 public:
-	Level* getLevel() {
-		return *reinterpret_cast<Level**>(reinterpret_cast<__int64>(this) + 0x260);
-	}
 	RenderPositionComponent* getRenderPositionComponent() {
 		using getRenderPositionComponent = RenderPositionComponent*(__fastcall*)(__int64, EntityId*);
 		static getRenderPositionComponent func = reinterpret_cast<getRenderPositionComponent>(Memory::getBase() + 0x2F067E0); //("40 53 48 83 EC ? 48 8B DA BA 6E F3 E8 D4");

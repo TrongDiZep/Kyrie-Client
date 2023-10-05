@@ -10,10 +10,12 @@
 //#include "MobSetSprintingHook/MobSetSprintingHook.h"
 #include "MobGetCurrentSwingDurationHook/MobGetCurrentSwingDurationHook.h"
 #include "GameModeGetPickRangeHook/GameModeGetPickRangeHook.h"
+//#include "MinecraftGameOnAppSuspendedHook/MinecraftGameOnAppSuspendedHook.h"
 
 #include "SwapChainHook/SwapChainHook.h"
 
 void HookManager::initAll() {
+	//MinecraftGameOnAppSuspendedHook::init();
 	RenderContextHook::init(); // always init this the renderContextHook first to have clientInstance!
 	KeyMapHook::init();
 	KeyMouseHook::init();
