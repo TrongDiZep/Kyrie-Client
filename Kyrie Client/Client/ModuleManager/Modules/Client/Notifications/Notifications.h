@@ -6,5 +6,4 @@ public:
 
 	Notifications();
 	virtual const char* getModuleName() override;
-	virtual bool isVisible() override;
 };

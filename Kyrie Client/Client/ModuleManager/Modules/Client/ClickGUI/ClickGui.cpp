@@ -27,10 +27,6 @@ const char* ClickGui::getModuleName() {
 	return "ClickGui";
 }
 
-bool ClickGui::isVisible() {
-	return false;
-}
-
 void ClickGui::onEnable() {
 	mc.getClientInstance()->releasebMouse();
 }
@@ -274,6 +270,16 @@ void ClickGui::Render(ImDrawList* d) {
 							Vec4<float> settingPos = Vec4<float>(modRect.x + textPadding * 3.f, yOffset, modRect.z - textPadding * 3.f, yOffset + textHeight);
 							const bool isFocus = settingPos.contains(mousePos) && mod->extendedDuration >= 0.8f && window->extended;
 							switch (setting->valueType) {
+							case ValueType::KEYBINT_T:
+							{
+								setting->selectedDuration = lerpSync(setting->selectedDuration, isFocus ? 1.f : 0.f, 0.2f);
+								RenderUtils::drawRectFilled(d, settingPos, Color(SelectedColor.r, SelectedColor.g, SelectedColor.b, (int)(SelectedColor.a * setting->selectedDuration * mod->extendedDuration)));
+
+								RenderUtils::drawText(d, Vec2<float>(settingPos.x + textPadding * 2.f, settingPos.y), std::string(std::string(setting->name) + ":").c_str(), Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+								RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth("None", 1.f) - textPadding * 2.f, settingPos.y), "None", Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+								break;
+
+							}
 							case ValueType::BOOL_T: {
 								RenderUtils::drawRectFilled(d, settingPos, ColorUtils::lerp(SdisableColor, SenableColor, setting->enabledDuration));
 								//RenderUtils::drawText(d, Vec2<float>(settingPos.x + textPadding * 2.f + 5.f * setting->selectedDuration, settingPos.y), setting->name, ColorUtils::lerp(Color(175, 175, 175, (int)(255 * Sopacity)), Color(255, 255, 255, (int)(255 * Sopacity)), setting->enabledDuration), 1.f, true);

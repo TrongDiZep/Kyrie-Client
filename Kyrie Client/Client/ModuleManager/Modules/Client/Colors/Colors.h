@@ -26,7 +26,6 @@ public:
 		return Color(r, g, b);
 	}
 	virtual const char* getModuleName() override;
-	virtual bool isVisible() override;
 	virtual bool isEnabled() override;
 	virtual void onImGuiRender(ImDrawList* d) override;
 	virtual void onModifySettingEnum(SettingEnum* se) override;

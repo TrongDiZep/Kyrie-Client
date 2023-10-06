@@ -39,6 +39,10 @@ Module::Module(int k, Category c, const char* d) {
 	this->category = c;
 	this->description = d;
 	registerBoolSetting("Visible", &this->visible, this->visible, "Visible on Arraylist");
+	registerKeybindSetting("Keybind", &this->keybind, this->keybind);
+	this->toggleMod.addEntry("Normal", 0);
+	this->toggleMod.addEntry("Hold", 1);
+	registerEnumSetting("Toggle", &this->toggleMod, 0);
 }
 
 EnumEntry::EnumEntry(const char* _name, const unsigned char value) {
@@ -247,6 +251,26 @@ void Module::registerEnumSetting(const char* name, SettingEnum* ptr, int default
 	settings.push_back(setting);
 }
 
+void Module::registerKeybindSetting(const char* name, int* intPtr, int defaultValue, const char* description, bool* shouldShow) {
+
+	SettingEntry* setting = new SettingEntry();
+	setting->valueType = ValueType::KEYBINT_T;
+	setting->value = reinterpret_cast<SettingValue*>(intPtr);  // Actual Value
+
+	// Default Value
+	SettingValue* defaultVal = new SettingValue();
+	defaultVal->_int = defaultValue;
+	setting->defaultValue = defaultVal;
+
+	// Name
+	setting->name = name;    //strcpy_s(setting->name, 19, name);  // Name
+	setting->description = description;
+	if (shouldShow == nullptr) setting->shouldShow = truePtr;  // shouldShow
+	else setting->shouldShow = shouldShow;  // shouldShow
+
+	settings.push_back(setting);  // Add to list
+}
+
 Module::~Module() {
 	for (SettingEntry* setting : this->settings) {
 		delete setting;
@@ -274,7 +298,8 @@ bool Module::isVisible() {
 }
 
 bool Module::isHoldMode() {
-	return false;
+	//return false;
+	return this->toggleMod.getSelectedValue();
 }
 
 void Module::setEnabled(const bool& enabled) {

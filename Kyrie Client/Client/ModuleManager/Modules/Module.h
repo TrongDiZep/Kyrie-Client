@@ -23,7 +23,8 @@ enum class ValueType {
 	INT_T,
 	BOOL_T,
 	TEXT_T,
-	ENUM_T
+	ENUM_T,
+	KEYBINT_T
 };
 
 class Module;
@@ -97,6 +98,7 @@ class Module {
 private:
 	bool enabled = false;
 	bool visible = true;
+	SettingEnum toggleMod = SettingEnum(this);
 	int keybind = 0x0;
 	Category category = Category::UNKNOW;
 	const char* description = nullptr;
@@ -115,6 +117,7 @@ protected:
 	void registerIntSetting(const char* name, int* intPtr, int defaultValue, int minValue, int maxValue, const char* description = nullptr, bool* shouldShow = nullptr);
 	void registerFloatSetting(const char* name, float* floatPtr, float defaultValue, float minValue, float maxValue, const char* description = nullptr, bool* shouldShow = nullptr);
 	void registerEnumSetting(const char* name, SettingEnum* intPtr, int defaultValue, const char* description = nullptr, bool* shouldShow = nullptr);
+	void registerKeybindSetting(const char* name, int* intPtr, int defaultValue, const char* description = nullptr, bool* shouldShow = nullptr);
 public:
 	inline const Category& getCategory() { return this->category; };
 	inline const char* getDescription() { return this->description; }

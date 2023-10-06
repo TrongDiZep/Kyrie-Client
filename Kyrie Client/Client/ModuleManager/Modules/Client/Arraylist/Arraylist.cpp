@@ -10,10 +10,6 @@ const char* Arraylist::getModuleName() {
 	return "Arraylist";
 }
 
-bool Arraylist::isVisible() {
-	return false;
-}
-
 void Arraylist::onModifySettingEnum(SettingEnum* se) {
 }
 
@@ -46,7 +42,7 @@ void Arraylist::onImGuiRender(ImDrawList* d) {
 	std::sort(modList.begin(), modList.end(), sortByLength);
 	for (std::shared_ptr<Module> mod : modList) {
 		float textWidth = RenderUtils::getTextWidth(mod->getModuleName(), 1.f);
-		mod->ArrListDuration = lerpSync(mod->ArrListDuration, (mod->isEnabled()) ? 1.f : 0.f, 0.1f);
+		mod->ArrListDuration = lerpSync(mod->ArrListDuration, (mod->isEnabled() && mod->isVisible()) ? 1.f : 0.f, 0.1f);
 		RenderUtils::drawText(d, Vec2<float>(windowSize.x - textPadding * 2.f - textWidth * mod->ArrListDuration, y), mod->getModuleName(), Color(colorsMod->getColor().r, colorsMod->getColor().g, colorsMod->getColor().b, (int)(255 * mod->ArrListDuration)), 1.f, true);
 		y += textHeight * mod->ArrListDuration;
 	}

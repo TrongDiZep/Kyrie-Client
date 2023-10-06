@@ -59,7 +59,6 @@ public:
 	ClickGui();
 	~ClickGui();
 	virtual const char* getModuleName() override;
-	virtual bool isVisible() override;
 	virtual void onEnable() override;
 	virtual void onDisable() override;
 };

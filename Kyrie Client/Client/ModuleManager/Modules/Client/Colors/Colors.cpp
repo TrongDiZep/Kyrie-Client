@@ -30,10 +30,6 @@ const char* Colors::getModuleName() {
 	return "Colors";
 }
 
-bool Colors::isVisible() {
-	return false;
-}
-
 bool Colors::isEnabled() {
 	return true;
 }
