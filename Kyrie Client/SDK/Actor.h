@@ -54,7 +54,7 @@ public:
 public:
 	RenderPositionComponent* getRenderPositionComponent() {
 		using getRenderPositionComponent = RenderPositionComponent*(__fastcall*)(__int64, EntityId*);
-		static getRenderPositionComponent func = reinterpret_cast<getRenderPositionComponent>(Memory::getBase() + 0x2F067E0); //("40 53 48 83 EC ? 48 8B DA BA 6E F3 E8 D4");
+		static getRenderPositionComponent func = reinterpret_cast<getRenderPositionComponent>(Memory::getBase() + 0x2F06A70); //("40 53 48 83 EC ? 48 8B DA BA 6E F3 E8 D4");
 		__int64 registryBase = (__int64)(*reinterpret_cast<void**>(this->entityContext.registry));
 		EntityId id = this->entityContext.id;
 		return func(registryBase, &id);

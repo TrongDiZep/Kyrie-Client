@@ -10,6 +10,7 @@ ModuleManager::ModuleManager(Client* c) {
 		//Render
 		this->moduleList.emplace_back(new FullBright());
 		this->moduleList.emplace_back(new Swing());
+		this->moduleList.emplace_back(new CustomFov());
 		//Movement
 		this->moduleList.emplace_back(new Sprint());
 		//Player

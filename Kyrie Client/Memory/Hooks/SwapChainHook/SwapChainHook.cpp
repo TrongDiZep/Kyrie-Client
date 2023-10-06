@@ -33,7 +33,6 @@ void Render(ImDrawList* d) {
 	if (ImGui::Begin("Test")) {
 		//static auto VTable = *(uintptr_t**)mc.getLocalPlayer();
 		//ImGui::Text("%llx", VTable[89]);
-		if (mc.getClientInstance()->getLevelRender() != nullptr) ImGui::Text("%llx",mc.getClientInstance()->getLevelRender());
 	}
 	ImGui::End();
 	

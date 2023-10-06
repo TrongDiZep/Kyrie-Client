@@ -12,7 +12,7 @@ float GetGammaHook::getGamma(uintptr_t* a1) {
 }
 
 void GetGammaHook::init() {
-	uintptr_t address = Memory::getBase() + 0x904900;  // 48 ? ? 48 ? ? ? 4C 8D 05 ? ? ? ? 89
+	uintptr_t address = Memory::getBase() + 0x9045D0;  // 48 83 EC 28 80 B9 ? ? ? ? ? 48 8D 54 24 ? 48 8B 01 48 8B 40 60
 
 	Memory::CreateHook("GetGammaHook", address, &GetGammaHook::getGamma, &_getGamma);
 }

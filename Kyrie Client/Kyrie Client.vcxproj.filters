@@ -135,6 +135,12 @@
     <ClCompile Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Memory\Hooks\GetFovHook\GetFovHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h">
@@ -300,6 +306,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\LevelRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\LevelRenderPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\Hooks\GetFovHook\GetFovHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

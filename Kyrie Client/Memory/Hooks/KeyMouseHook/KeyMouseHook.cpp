@@ -40,7 +40,7 @@ __int64 KeyMouseHook::KeyMouseCallBack(__int64 a1, char mouseButton, char isDown
 }
 
 void KeyMouseHook::init() {
-	uintptr_t address = Memory::getBase() + 0x3F1F1A0;  // 48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 54 41 55 41 56 41 57 48 83 EC 60 44 0F B7 BC 24
+	uintptr_t address = Memory::getBase() + 0x3F1F420;  // 48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 57 41 54 41 55 41 56 41 57 48 83 EC 60 44 0F B7 BC 24
 
 	Memory::CreateHook("KeyMouseHook", address, &KeyMouseHook::KeyMouseCallBack, &_Mouse);
 }

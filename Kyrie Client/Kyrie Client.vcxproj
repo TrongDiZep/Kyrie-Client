@@ -153,6 +153,7 @@
     <ClCompile Include="Client\ModuleManager\Modules\Module.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Movement\Sprint\Sprint.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Player\BlockReach\BlockReach.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Render\Swing\Swing.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Memory\GameData\GameData.cpp" />
     <ClCompile Include="Memory\Hooks\DrawImageHook\DrawImageHook.cpp" />
     <ClCompile Include="Memory\Hooks\GameModeGetPickRangeHook\GameModeGetPickRangeHook.cpp" />
+    <ClCompile Include="Memory\Hooks\GetFovHook\GetFovHook.cpp" />
     <ClCompile Include="Memory\Hooks\GetGammaHook\GetGammaHook.cpp" />
     <ClCompile Include="Memory\Hooks\HookManager.cpp" />
     <ClCompile Include="Memory\Hooks\KeyMapHook\KeyMapHook.cpp" />
@@ -195,6 +197,7 @@
     <ClInclude Include="Client\ModuleManager\Modules\Module.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Movement\Sprint\Sprint.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Player\BlockReach\BlockReach.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Render\Swing\Swing.h" />
     <ClInclude Include="Fonts\Arial.h" />
@@ -212,6 +215,7 @@
     <ClInclude Include="Memory\GameData\GameData.h" />
     <ClInclude Include="Memory\Hooks\DrawImageHook\DrawImageHook.h" />
     <ClInclude Include="Memory\Hooks\GameModeGetPickRangeHook\GameModeGetPickRangeHook.h" />
+    <ClInclude Include="Memory\Hooks\GetFovHook\GetFovHook.h" />
     <ClInclude Include="Memory\Hooks\GetGammaHook\GetGammaHook.h" />
     <ClInclude Include="Memory\Hooks\HookManager.h" />
     <ClInclude Include="Memory\Hooks\KeyMapHook\KeyMapHook.h" />
@@ -231,6 +235,7 @@
     <ClInclude Include="SDK\GuiData.h" />
     <ClInclude Include="SDK\Level.h" />
     <ClInclude Include="SDK\LevelRender.h" />
+    <ClInclude Include="SDK\LevelRenderPlayer.h" />
     <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
     <ClInclude Include="SDK\Mob.h" />
     <ClInclude Include="SDK\Player.h" />

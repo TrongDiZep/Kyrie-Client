@@ -11,6 +11,7 @@
 #include "MobGetCurrentSwingDurationHook/MobGetCurrentSwingDurationHook.h"
 #include "GameModeGetPickRangeHook/GameModeGetPickRangeHook.h"
 //#include "MinecraftGameOnAppSuspendedHook/MinecraftGameOnAppSuspendedHook.h"
+#include "GetFovHook/GetFovHook.h"
 
 #include "SwapChainHook/SwapChainHook.h"
 
@@ -22,9 +23,10 @@ void HookManager::initAll() {
 	DrawImageHook::init();
 	GetGammaHook::init();
 	//MobSetSprintingHook::init();
+	GetFovHook::init();
 	MobGetCurrentSwingDurationHook::init();
 
-	uintptr_t gameModeOffset = Memory::getBase() + 0x2FCFAAF; // 48 8D 05 ? ? ? ? 48 89 01 48 89 51 ? 48 C7 41 ? ? ? ? ? C7 41 18 ? ? ? ? 44 88 61 ? 4C 89 61
+	uintptr_t gameModeOffset = Memory::getBase() + 0x2FCFD3F; // 48 8D 05 ? ? ? ? 48 89 01 48 89 51 ? 48 C7 41 ? ? ? ? ? C7 41 18 ? ? ? ? 44 88 61 ? 4C 89 61
 	if (gameModeOffset != 0x0) {
 		int offset = *(int*)(gameModeOffset + 3);
 		uintptr_t** gameModeVtable = (uintptr_t**)(gameModeOffset + offset + 7);

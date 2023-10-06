@@ -14,7 +14,7 @@ __int64 DrawImageHook::DrawImageCallBack(MinecraftUIRenderContext* renderCtx, Te
 }
 
 void DrawImageHook::init() {
-	uintptr_t address = Memory::getBase() + 0x131BC20;
+	uintptr_t address = Memory::getBase() + 0x131BEB0; // 48 8B C4 48 89 58 10 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC 90 00 00 00 0F 29 70 C8 0F
 
 	Memory::CreateHook("DrawImageHook", address, &DrawImageHook::DrawImageCallBack, &_drawImage);
 }

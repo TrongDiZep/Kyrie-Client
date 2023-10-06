@@ -12,7 +12,7 @@ int MobGetCurrentSwingDurationHook::MobGetCurrentSwingDuration(Mob* a1) {
 }
 
 void MobGetCurrentSwingDurationHook::init() {
-	uintptr_t address = Memory::getBase() + 0x3065060; // 48 89 5C 24 ? 57 48 83 EC 20 48 8B 15 ? ? ? ? 48 8B F9 33 DB
+	uintptr_t address = Memory::getBase() + 0x30652F0; // 48 89 5C 24 ? 57 48 83 EC 20 48 8B 15 ? ? ? ? 48 8B F9 33 DB
 
 	Memory::CreateHook("MobGetCurrentSwingDurationHook", address, &MobGetCurrentSwingDurationHook::MobGetCurrentSwingDuration, &_getSwingDuration);
 }
