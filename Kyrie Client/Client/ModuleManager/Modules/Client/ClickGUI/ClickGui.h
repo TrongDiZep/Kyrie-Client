@@ -49,11 +49,17 @@ private:
 	bool initialized = false;
 	std::vector<std::shared_ptr<ClickWindow>> windowList;
 	std::vector<std::shared_ptr<clickGuiParticles>> particles;
+private:
+	//Some setting stuff
+	Vec2<float> startDragPos = Vec2<float>(0.f, 0.f);
+	int lastKeyPressed = 0xFFFFFF;
+	bool* isChoosingKeybind = nullptr;
 public:
 	bool gradientBG = true;
 	float blurStrength = 2.5f;
 	bool showParticles = true;
 	void init();
+	void onKeyUpdate(unsigned char key, bool isDown);
 	void Render(ImDrawList* d);
 
 	ClickGui();

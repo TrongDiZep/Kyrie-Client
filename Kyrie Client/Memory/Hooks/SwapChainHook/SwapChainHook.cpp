@@ -33,17 +33,11 @@ void Render(ImDrawList* d) {
 	if (ImGui::Begin("Test")) {
 		//static auto VTable = *(uintptr_t**)mc.getLocalPlayer();
 		//ImGui::Text("%llx", VTable[89]);
+		//if (mc.getClientInstance()->levelRender != nullptr) ImGui::Text("%llx", mc.getClientInstance()->levelRender->levelRenderPlayer);
 	}
 	ImGui::End();
-	
 	//ImGui::ShowDemoWindow();
 	
-	/*
-	std::shared_ptr<glmatrixf> refdef = std::shared_ptr<glmatrixf>(mc.getClientInstance()->getbadrefdef()->correct());
-	Vec2<float> test = refdef->OWorldToScreen(Vec3<float>(0.f, 0.f, 0.f), Vec3<float>(0.f, 0.f, 0.f));
-	
-	d->AddCircle(ImVec2(test.x, test.y), 20.f, ImColor(255, 255, 255, 255));
-	*/
 	client->moduleMgr->onImGuiRender(d);
 	static Colors* colorsMod = client->moduleMgr->getModule<Colors>();
 	{ // Watermark
@@ -58,7 +52,7 @@ void Render(ImDrawList* d) {
 }
 
 HRESULT presentCallback(IDXGISwapChain3* pSwapChain, UINT syncInterval, UINT flags) {
-	if (!client->isInitialized() || mc.getClientInstance() == nullptr || mc.getClientInstance()->getGuiData() == nullptr) return oPresent(pSwapChain, syncInterval, flags);
+	if (!client->isInitialized() || mc.getClientInstance() == nullptr || mc.getClientInstance()->guiData == nullptr) return oPresent(pSwapChain, syncInterval, flags);
 
 	HWND window = (HWND)FindWindowA(nullptr, (LPCSTR)"Minecraft");
 	ID3D11Device* d3d11Device = nullptr;
@@ -95,7 +89,7 @@ HRESULT presentCallback(IDXGISwapChain3* pSwapChain, UINT syncInterval, UINT fla
 		//ImGuiContext* g = ImGui::GetCurrentContext();
 		//g->HoveredIdAllowOverlap = true;
 		ImGui_ImplDX11_NewFrame();
-		ImGui_ImplWin32_NewFrame(ImVec2(mc.getClientInstance()->getGuiData()->windowSizeReal.x, mc.getClientInstance()->getGuiData()->windowSizeReal.y));
+		ImGui_ImplWin32_NewFrame(ImVec2(mc.getClientInstance()->guiData->windowSizeReal.x, mc.getClientInstance()->guiData->windowSizeReal.y));
 
 		ImGui::NewFrame();
 		Render(ImGui::GetBackgroundDrawList());

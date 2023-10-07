@@ -34,7 +34,7 @@ __int64 KeyMouseHook::KeyMouseCallBack(__int64 a1, char mouseButton, char isDown
 	}
 
 	static ClickGui* clickGuiMod = client->moduleMgr->getModule<ClickGui>();
-	if (clickGuiMod != nullptr && clickGuiMod->isEnabled()) isDown = false;
+	if (clickGuiMod->isEnabled()) isDown = false;
 
 	return _Mouse(a1, mouseButton, isDown, mouseX, mouseY, relativeMovementX, relativeMovementY, a8);
 }

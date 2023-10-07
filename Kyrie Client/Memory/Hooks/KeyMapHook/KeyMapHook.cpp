@@ -9,7 +9,8 @@ __int64 KeyMapHook::KeyMapCallBack(unsigned char key, bool isDown) {
 	if (!client->moduleMgr->isInitialized()) return 0;
 	static ClickGui* clickGuiMod = client->moduleMgr->getModule<ClickGui>();
 	if (clickGuiMod->isEnabled()) { // No move ClickGui
-		if (isDown && (key == VK_ESCAPE || key == clickGuiMod->getKeybind())) clickGuiMod->toggle();
+		//if (isDown && (key == VK_ESCAPE || key == clickGuiMod->getKeybind())) clickGuiMod->toggle();
+		clickGuiMod->onKeyUpdate(key, isDown);
 		return 0;
 	}
 	client->moduleMgr->onKeyUpdate(key, isDown);

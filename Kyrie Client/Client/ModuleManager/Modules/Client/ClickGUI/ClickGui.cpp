@@ -2,8 +2,6 @@
 #include "../../../../Client.h"
 #include "../../../../../ImFX/imfx.h"
 
-Vec2<float> startDragPos = Vec2<float>(0.f, 0.f);
-
 void getModuleListByCategory(const Category& c, std::vector<std::shared_ptr<Module>>& modList) {
 	for (const std::shared_ptr<Module>& mod : client->moduleMgr->getModuleList()) {
 		if (mod->getCategory() == c) {
@@ -50,6 +48,22 @@ void ClickGui::init() {
 		startPos.x += 220.f;
 		this->windowList.emplace_back(new ClickWindow(startPos, Category::CLIENT));
 		this->initialized = true;
+	}
+}
+
+void ClickGui::onKeyUpdate(unsigned char key, bool isDown) {
+	if (isDown) {
+		lastKeyPressed = (int)key;
+	}
+	if (isDown && (key == VK_ESCAPE || key == this->getKeybind())) {
+		if (isChoosingKeybind == nullptr) {
+			this->setEnabled(false);
+			return;
+		}
+		else if (!(*isChoosingKeybind)) {
+			this->setEnabled(false);
+			return;
+		}
 	}
 }
 
@@ -272,11 +286,51 @@ void ClickGui::Render(ImDrawList* d) {
 							switch (setting->valueType) {
 							case ValueType::KEYBINT_T:
 							{
-								setting->selectedDuration = lerpSync(setting->selectedDuration, isFocus ? 1.f : 0.f, 0.2f);
+								if (isFocus) {
+									setting->selectedDuration = lerpSync(setting->selectedDuration, 1.f, 0.2f);
+									if (canClick) {
+										if (mc.isLeftClickDown) {
+											if (isChoosingKeybind != nullptr && isChoosingKeybind != &(setting->isChoosingKeybind)) *isChoosingKeybind = false;
+											setting->isChoosingKeybind = !setting->isChoosingKeybind;
+											isChoosingKeybind = &(setting->isChoosingKeybind);
+											setting->timeCounter = 0.f;
+											mc.isLeftClickDown = false;
+										}
+										else if (setting->isChoosingKeybind && mc.isRightClickDown) {
+											setting->value->_int = 0x0;
+											setting->isChoosingKeybind = false;
+											mc.isRightClickDown = false;
+										}
+									}
+								}
+								else {
+									setting->selectedDuration = lerpSync(setting->selectedDuration, 0.f, 0.2f);
+								}
 								RenderUtils::drawRectFilled(d, settingPos, Color(SelectedColor.r, SelectedColor.g, SelectedColor.b, (int)(SelectedColor.a * setting->selectedDuration * mod->extendedDuration)));
 
 								RenderUtils::drawText(d, Vec2<float>(settingPos.x + textPadding * 2.f, settingPos.y), std::string(std::string(setting->name) + ":").c_str(), Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
-								RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth("None", 1.f) - textPadding * 2.f, settingPos.y), "None", Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+								if (setting->isChoosingKeybind) {
+									//RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth("...", 1.f) - textPadding * 2.f, settingPos.y), "...", Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+									float test1, test2, test3 = 0.f;
+									setting->timeCounter += ImGui::GetIO().DeltaTime;
+									if (setting->timeCounter > 1.f && setting->timeCounter < 1.5f) test1 = 1.f - abs(setting->timeCounter - 1.25f) * 4.f;
+									if (setting->timeCounter > 1.25f && setting->timeCounter < 1.75f) test2 = 1.f - abs(setting->timeCounter - 1.5f) * 4.f;
+									if (setting->timeCounter > 1.5f && setting->timeCounter < 2.f) test3 = 1.f - abs(setting->timeCounter - 1.75f) * 4.f;
+									d->AddCircleFilled(ImVec2(settingPos.z - 4.f - 18.f, settingPos.w - 6.f - 6.f * test1), 2.f, ImColor(255, 255, 255, 255));
+									d->AddCircleFilled(ImVec2(settingPos.z - 4.f - 10.f, settingPos.w - 6.f - 6.f * test2), 2.f, ImColor(255, 255, 255, 255));
+									d->AddCircleFilled(ImVec2(settingPos.z - 4.f - 2.f, settingPos.w - 6.f - 6.f * test3), 2.f, ImColor(255, 255, 255, 255));
+									if (setting->timeCounter >= 2.5f) setting->timeCounter = 0.f;
+									if (lastKeyPressed != 0xFFFFFF) {
+										setting->value->_int = lastKeyPressed;
+										setting->isChoosingKeybind = false;
+									}
+								}
+								else {
+									if (mod->getKeybind() == 0x0) RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth("None", 1.f) - textPadding * 2.f, settingPos.y), "None", Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+									else if (KeyNames[setting->value->_int] != nullptr) RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth(KeyNames[setting->value->_int], 1.f) - textPadding * 2.f, settingPos.y), KeyNames[setting->value->_int], Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+									else RenderUtils::drawText(d, Vec2<float>(settingPos.z - RenderUtils::getTextWidth("Unknow", 1.f) - textPadding * 2.f, settingPos.y), "Unknow", Color(255, 255, 255, (int)(255 * Sopacity)), 1.f, true);
+								}
+
 								break;
 
 							}
@@ -446,4 +500,5 @@ void ClickGui::Render(ImDrawList* d) {
 	}
 	mc.isLeftClickDown = false;
 	mc.isRightClickDown = false;
+	lastKeyPressed = 0xFFFFFF;
 }

@@ -39,7 +39,7 @@ void Arraylist::onImGuiRender(ImDrawList* d) {
 	float y = offset;
 
 	std::vector<std::shared_ptr<Module>> modList = client->moduleMgr->getModuleList();
-	std::sort(modList.begin(), modList.end(), sortByLength);
+	//std::sort(modList.begin(), modList.end(), sortByLength);
 	for (std::shared_ptr<Module> mod : modList) {
 		float textWidth = RenderUtils::getTextWidth(mod->getModuleName(), 1.f);
 		mod->ArrListDuration = lerpSync(mod->ArrListDuration, (mod->isEnabled() && mod->isVisible()) ? 1.f : 0.f, 0.1f);

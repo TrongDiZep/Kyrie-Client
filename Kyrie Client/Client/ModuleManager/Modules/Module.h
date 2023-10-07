@@ -84,6 +84,8 @@ public:
 	void* extraData; // Only used by enum for now
 	// ClickGui stuff
 	bool* shouldShow;
+	bool isChoosingKeybind = false;
+	float timeCounter = 0.f;
 	bool isDragging = false;
 	float enabledDuration = 0.f;
 	float selectedDuration = 0.f;

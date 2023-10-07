@@ -38,7 +38,9 @@ void Colors::onImGuiRender(ImDrawList* d) {
 }
 
 void Colors::onModifySettingEnum(SettingEnum* se) {
-	Check1 = (Mode.getSelectedValue() == 0 || Mode.getSelectedValue() == 2);
-	Check2 = Mode.getSelectedValue() == 1;
-	Check3 = Mode.getSelectedValue() == 2;
+	if (se == &Mode) {
+		Check1 = (Mode.getSelectedValue() == 0 || Mode.getSelectedValue() == 2);
+		Check2 = Mode.getSelectedValue() == 1;
+		Check3 = Mode.getSelectedValue() == 2;
+	}
 }

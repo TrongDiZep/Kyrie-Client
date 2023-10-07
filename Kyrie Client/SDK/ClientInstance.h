@@ -8,14 +8,10 @@ class ClientInstance {
 private:
 	uintptr_t** VTable;
 public:
-	
-	glmatrixf* getbadrefdef() {
-		return (glmatrixf*)((uintptr_t)(this) + 0x330);
-	}
-	
-	GuiData* getGuiData() {
-		return *reinterpret_cast<GuiData**>(reinterpret_cast<__int64>(this) + 0x560);
-	}
+	BUILD_ACCESS(this, LevelRender*, levelRender, 0x00E0);
+	BUILD_ACCESS(this, glmatrixf*, badrefdef, 0x330);
+	BUILD_ACCESS(this, GuiData*, guiData, 0x560);
+public:
 
 	Vec2<float>* getMousePos() {
 		return reinterpret_cast<Vec2<float>*>((uintptr_t)this + 0x498);
@@ -30,10 +26,6 @@ public:
 
 	Player* getLocalPlayer() {
 		return Utils::CallVFunc<27, Player*>(this);
-	}
-
-	LevelRender* getLevelRender() {
-		return Utils::CallVFunc<196, LevelRender*>(this);
 	}
 
 	void grabMouse() {
