@@ -141,6 +141,9 @@
     <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h">
@@ -315,6 +318,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

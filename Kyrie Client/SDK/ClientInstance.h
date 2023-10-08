@@ -9,9 +9,13 @@ private:
 	uintptr_t** VTable;
 public:
 	BUILD_ACCESS(this, LevelRender*, levelRender, 0x00E0);
-	BUILD_ACCESS(this, glmatrixf*, badrefdef, 0x330);
+	//BUILD_ACCESS(this, glmatrixf*, badrefdef, 0x330);
 	BUILD_ACCESS(this, GuiData*, guiData, 0x560);
 public:
+
+	glmatrixf* getBadRefDef() {
+		return reinterpret_cast<glmatrixf*>((uintptr_t)(this) + 0x330);
+	};
 
 	Vec2<float>* getMousePos() {
 		return reinterpret_cast<Vec2<float>*>((uintptr_t)this + 0x498);
@@ -19,8 +23,8 @@ public:
 
 	Vec2<float> getFov() {
 		Vec2<float> fov;
-		fov.x = *reinterpret_cast<float*>((uintptr_t)(this) + 0x6D0);
-		fov.y = *reinterpret_cast<float*>((uintptr_t)(this) + 0x6DC);
+		fov.x = *reinterpret_cast<float*>((uintptr_t)(this) + 0x6F8);
+		fov.y = *reinterpret_cast<float*>((uintptr_t)(this) + 0x70C);
 		return fov;
 	}
 

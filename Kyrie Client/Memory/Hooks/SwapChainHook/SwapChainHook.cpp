@@ -33,10 +33,14 @@ void Render(ImDrawList* d) {
 	if (ImGui::Begin("Test")) {
 		//static auto VTable = *(uintptr_t**)mc.getLocalPlayer();
 		//ImGui::Text("%llx", VTable[89]);
-		//if (mc.getClientInstance()->levelRender != nullptr) ImGui::Text("%llx", mc.getClientInstance()->levelRender->levelRenderPlayer);
+		if (mc.getClientInstance()->levelRender != nullptr) ImGui::Text("%llx", mc.getClientInstance()->levelRender->levelRenderPlayer);
+		ImGui::Text("%llx", mc.getClientInstance());
 	}
 	ImGui::End();
 	//ImGui::ShowDemoWindow();
+	
+	glmatrixf* badrefdef = mc.getClientInstance()->getBadRefDef();
+	std::shared_ptr<glmatrixf> refef = std::shared_ptr<glmatrixf>(badrefdef->correct());
 	
 	client->moduleMgr->onImGuiRender(d);
 	static Colors* colorsMod = client->moduleMgr->getModule<Colors>();
