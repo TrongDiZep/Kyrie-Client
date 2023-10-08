@@ -144,6 +144,9 @@
     <ClCompile Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Client\NotificationManager\NotificationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h">
@@ -321,6 +324,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\NotificationManager\NotificationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

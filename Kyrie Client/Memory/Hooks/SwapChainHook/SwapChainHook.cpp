@@ -39,9 +39,6 @@ void Render(ImDrawList* d) {
 	ImGui::End();
 	//ImGui::ShowDemoWindow();
 	
-	glmatrixf* badrefdef = mc.getClientInstance()->getBadRefDef();
-	std::shared_ptr<glmatrixf> refef = std::shared_ptr<glmatrixf>(badrefdef->correct());
-	
 	client->moduleMgr->onImGuiRender(d);
 	static Colors* colorsMod = client->moduleMgr->getModule<Colors>();
 	{ // Watermark
@@ -52,7 +49,7 @@ void Render(ImDrawList* d) {
 	
 	static ClickGui* clickGuiMod = client->moduleMgr->getModule<ClickGui>();
 	clickGuiMod->Render(d);
-	
+
 }
 
 HRESULT presentCallback(IDXGISwapChain3* pSwapChain, UINT syncInterval, UINT flags) {

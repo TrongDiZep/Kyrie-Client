@@ -156,6 +156,7 @@
     <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Render\Swing\Swing.cpp" />
+    <ClCompile Include="Client\NotificationManager\NotificationManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ImFX\imfx.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Render\Swing\Swing.h" />
+    <ClInclude Include="Client\NotificationManager\NotificationManager.h" />
     <ClInclude Include="Fonts\Arial.h" />
     <ClInclude Include="ImFX\imfx.h" />
     <ClInclude Include="ImGui\imconfig.h" />
