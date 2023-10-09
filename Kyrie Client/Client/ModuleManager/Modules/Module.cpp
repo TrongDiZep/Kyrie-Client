@@ -88,7 +88,7 @@ SettingEnum& SettingEnum::addEntry(EnumEntry entr) {
 SettingEnum& SettingEnum::addEntry(const char* name, int value) {
 	auto etr = EnumEntry(name, value);
 	bool SameVal = false;
-	for (auto it : Entrys)
+	for (EnumEntry it : Entrys)
 		SameVal |= it.GetValue() == etr.GetValue();
 
 	if (!SameVal) {
@@ -336,4 +336,7 @@ void Module::onKeyUpdate(const int& key, const bool& isDown) {
 }
 
 void Module::onImGuiRender(ImDrawList* d) {
+}
+
+void Module::onImGui3DRender(ImDrawList* d, glmatrixf* refdef) {
 }

@@ -9,6 +9,8 @@ updateCamera _updateCamera;
 
 __int64 LevelRenderPlayerUpdateCameraHook::updateCamera(LevelRenderPlayer* a1, __int64 a2) {
 	return _updateCamera(a1, a2);
+	//__int64 result = _updateCamera(a1, a2);
+	//return result;
 }
 
 void LevelRenderPlayerUpdateCameraHook::init() {

@@ -140,4 +140,5 @@ public:
 	virtual void onModifySettingEnum(SettingEnum* se);
 	virtual void onKeyUpdate(const int& key, const bool& isDown);
 	virtual void onImGuiRender(ImDrawList* d);
+	virtual void onImGui3DRender(ImDrawList* d, glmatrixf* refdef);
 };

@@ -33,18 +33,23 @@ void Render(ImDrawList* d) {
 	if (ImGui::Begin("Test")) {
 		//static auto VTable = *(uintptr_t**)mc.getLocalPlayer();
 		//ImGui::Text("%llx", VTable[89]);
-		if (mc.getClientInstance()->levelRender != nullptr) ImGui::Text("%llx", mc.getClientInstance()->levelRender->levelRenderPlayer);
-		ImGui::Text("%llx", mc.getClientInstance());
+		ImGui::Text("%llx", mc.getLocalPlayer());
 	}
 	ImGui::End();
 	//ImGui::ShowDemoWindow();
-	
+
+	if (mc.getClientInstance()->levelRender != nullptr) {
+		glmatrixf* badrefdef = mc.getClientInstance()->getBadRefDef();
+		std::shared_ptr<glmatrixf> refdef = std::shared_ptr<glmatrixf>(badrefdef->correct());
+		client->moduleMgr->onImGui3DRender(d, refdef.get());
+	}
+
 	client->moduleMgr->onImGuiRender(d);
 	static Colors* colorsMod = client->moduleMgr->getModule<Colors>();
 	{ // Watermark
 		static Vec2<float> waterMarkPos = Vec2<float>(10.f, 7.5f);
-		RenderUtils::drawText(d, Vec2<float>(waterMarkPos.x, waterMarkPos.y), "K", colorsMod->getColor(), 1.5f, true, 75.f);
-		RenderUtils::drawText(d, Vec2<float>(waterMarkPos.x + RenderUtils::getTextWidth("K", 1.5f), waterMarkPos.y), "yrie", Color(255, 255, 255), 1.5f, true, 75.f);
+		RenderUtils::drawText(d, Vec2<float>(waterMarkPos.x, waterMarkPos.y), "K", colorsMod->getColor(), 1.5f, true, 75.f); // 75.f
+		RenderUtils::drawText(d, Vec2<float>(waterMarkPos.x + RenderUtils::getTextWidth("K", 1.5f), waterMarkPos.y), "yrie", Color(255, 255, 255), 1.5f, true, 75.f); // 75.f
 	}
 	
 	static ClickGui* clickGuiMod = client->moduleMgr->getModule<ClickGui>();

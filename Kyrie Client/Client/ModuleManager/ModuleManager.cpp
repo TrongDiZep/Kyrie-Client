@@ -11,6 +11,7 @@ ModuleManager::ModuleManager(Client* c) {
 		this->moduleList.emplace_back(new FullBright());
 		this->moduleList.emplace_back(new Swing());
 		this->moduleList.emplace_back(new CustomFov());
+		this->moduleList.emplace_back(new Trail());
 		//Movement
 		this->moduleList.emplace_back(new Sprint());
 		//Player
@@ -40,6 +41,13 @@ ModuleManager::~ModuleManager() {
 	this->moduleList.clear();
 }
 
+void ModuleManager::onKeyUpdate(const int& key, const bool& isDown) {
+	if (!this->initialized) return;
+	for (const std::shared_ptr<Module>& mod : this->moduleList) {
+		mod->onKeyUpdate(key, isDown);
+	}
+}
+
 void ModuleManager::onImGuiRender(ImDrawList* d) {
 	if (!this->initialized) return;
 	for (const std::shared_ptr<Module>& mod : this->moduleList) {
@@ -47,9 +55,9 @@ void ModuleManager::onImGuiRender(ImDrawList* d) {
 	}
 }
 
-void ModuleManager::onKeyUpdate(const int& key, const bool& isDown) {
+void ModuleManager::onImGui3DRender(ImDrawList* d, glmatrixf* refdef) {
 	if (!this->initialized) return;
 	for (const std::shared_ptr<Module>& mod : this->moduleList) {
-		mod->onKeyUpdate(key, isDown);
+		if (mod->isEnabled()) mod->onImGui3DRender(d, refdef);
 	}
 }

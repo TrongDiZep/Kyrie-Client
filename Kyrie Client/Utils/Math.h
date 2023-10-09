@@ -211,6 +211,14 @@ public:
 		return Vec3<T>(x - v.x, y - v.y, z - v.z);
 	};
 	*/
+
+	float squaredlen() const { return x * x + y * y + z * z; }
+
+	float magnitude() const { return sqrtf(squaredlen()); }
+
+	float dist(Vec3<T>& v) {
+		return this->sub(v).magnitude();
+	}
 };
 
 template<typename T>

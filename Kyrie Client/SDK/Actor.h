@@ -11,6 +11,12 @@
 #include "Level.h"
 #include "GameMode.h"
 
+class EntityRotation {
+public:
+	Vec2<float> rotPrev;
+	Vec2<float> rot;
+};
+
 enum ActorFlags;
 class Mob;
 class Player;
@@ -50,6 +56,7 @@ class Actor {
 public:
 	BUILD_ACCESS(this, EntityContext, entityContext, 0x8);
 	BUILD_ACCESS(this, Level*, level, 0x260);
+	BUILD_ACCESS(this, EntityRotation*, rotation, 0x2B0);
 	BUILD_ACCESS(this, GameMode*, gameMode, 0x0E70);
 public:
 	RenderPositionComponent* getRenderPositionComponent() {
