@@ -370,15 +370,14 @@ struct glmatrixf {
 		return newMatPtr;
 	};
 
-	inline bool OWorldToScreen(Vec3<float> origin, Vec3<float> pos, Vec2<float>& screen, Vec2<float> fov, Vec2<float> displaySize) {
+	bool WorldToScreen(Vec3<float> origin, Vec3<float> pos, Vec2<float>& screen, Vec2<float> fov, Vec2<float> displaySize) {
 		pos = pos.sub(origin);
 
 		float x = transformx(pos);
 		float y = transformy(pos);
 		float z = transformz(pos);
 
-		if (z > 0)
-			return false;
+		if (z > 0) return false;
 
 		float mX = (float)displaySize.x / 2.0F;
 		float mY = (float)displaySize.y / 2.0F;
