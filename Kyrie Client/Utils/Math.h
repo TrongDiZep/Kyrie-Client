@@ -203,7 +203,7 @@ public:
 	Vec3<T> sub(T vX, T vY, T vZ) {
 		return Vec3<T>(x - vX, y - vY, z - vZ);
 	};
-	Vec3<T> sub(Vec3<T>& v) {
+	Vec3<T> sub(const Vec3<T>& v) {
 		return Vec3<T>(x - v.x, y - v.y, z - v.z);
 	};
 	/*

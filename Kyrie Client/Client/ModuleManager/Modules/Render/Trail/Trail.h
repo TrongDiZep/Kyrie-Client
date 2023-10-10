@@ -3,9 +3,12 @@
 
 struct Ball {
 	Vec3<float> pos;
+	Vec3<float> RealPos;
 	float duration;
+	float startDuration = 0.f;
 	Ball(const Vec3<float>& Pos, const float& Duration) {
 		this->pos = Pos;
+		this->RealPos = Pos;
 		this->duration = Duration;
 	}
 };

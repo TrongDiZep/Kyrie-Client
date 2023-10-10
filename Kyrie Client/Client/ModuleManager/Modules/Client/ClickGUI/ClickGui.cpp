@@ -286,6 +286,7 @@ void ClickGui::Render(ImDrawList* d) {
 							switch (setting->valueType) {
 							case ValueType::KEYBINT_T:
 							{
+								if (!mod->extended) setting->isChoosingKeybind = false;
 								if (isFocus) {
 									setting->selectedDuration = lerpSync(setting->selectedDuration, 1.f, 0.2f);
 									if (canClick) {
