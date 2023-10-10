@@ -147,9 +147,6 @@
     <ClCompile Include="Client\NotificationManager\NotificationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Client\ModuleManager\Modules\Render\Trail\Trail.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h">
@@ -330,9 +327,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Client\NotificationManager\NotificationManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Client\ModuleManager\Modules\Render\Trail\Trail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

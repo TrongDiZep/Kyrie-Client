@@ -7,7 +7,6 @@
 #include "Modules/Render/FullBright/FullBright.h"
 #include "Modules/Render/Swing/Swing.h"
 #include "Modules/Render/CustomFov/CustomFov.h"
-#include "Modules/Render/Trail/Trail.h"
 //Movement
 #include "Modules/Movement/Sprint/Sprint.h"
 //Player
