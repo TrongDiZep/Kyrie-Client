@@ -2,13 +2,13 @@
 #include "GuiData.h"
 #include "../Utils/Utils.h"
 #include "Player.h"
-#include "LevelRender.h"
+#include "LevelRenderer.h"
 
 class ClientInstance {
 private:
 	uintptr_t** VTable;
 public:
-	BUILD_ACCESS(this, LevelRender*, levelRender, 0x00E0);
+	BUILD_ACCESS(this, LevelRenderer*, levelRenderer, 0x00E0);
 	//BUILD_ACCESS(this, glmatrixf*, badrefdef, 0x330);
 	BUILD_ACCESS(this, GuiData*, guiData, 0x560);
 public:

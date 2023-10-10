@@ -141,7 +141,7 @@
     <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.cpp">
+    <ClCompile Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Client\NotificationManager\NotificationManager.cpp">
@@ -311,10 +311,10 @@
     <ClInclude Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\LevelRender.h">
+    <ClInclude Include="SDK\LevelRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\LevelRenderPlayer.h">
+    <ClInclude Include="SDK\LevelRendererPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Memory\Hooks\GetFovHook\GetFovHook.h">
@@ -323,7 +323,7 @@
     <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.h">
+    <ClInclude Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Client\NotificationManager\NotificationManager.h">

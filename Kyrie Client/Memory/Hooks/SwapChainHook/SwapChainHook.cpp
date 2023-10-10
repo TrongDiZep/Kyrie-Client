@@ -38,7 +38,7 @@ void Render(ImDrawList* d) {
 	ImGui::End();
 	//ImGui::ShowDemoWindow();
 
-	if (mc.getClientInstance()->levelRender != nullptr) {
+	if (mc.getClientInstance()->levelRenderer != nullptr) {
 		glmatrixf* badrefdef = mc.getClientInstance()->getBadRefDef();
 		std::shared_ptr<glmatrixf> refdef = std::shared_ptr<glmatrixf>(badrefdef->correct());
 		client->moduleMgr->onImGui3DRender(d, refdef.get());

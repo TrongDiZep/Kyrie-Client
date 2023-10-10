@@ -176,7 +176,7 @@
     <ClCompile Include="Memory\Hooks\HookManager.cpp" />
     <ClCompile Include="Memory\Hooks\KeyMapHook\KeyMapHook.cpp" />
     <ClCompile Include="Memory\Hooks\KeyMouseHook\KeyMouseHook.cpp" />
-    <ClCompile Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.cpp" />
+    <ClCompile Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.cpp" />
     <ClCompile Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.cpp" />
     <ClCompile Include="Memory\Hooks\MobGetCurrentSwingDurationHook\MobGetCurrentSwingDurationHook.cpp" />
     <ClCompile Include="Memory\Hooks\MobSetSprintingHook\MobSetSprintingHook.cpp" />
@@ -223,7 +223,7 @@
     <ClInclude Include="Memory\Hooks\HookManager.h" />
     <ClInclude Include="Memory\Hooks\KeyMapHook\KeyMapHook.h" />
     <ClInclude Include="Memory\Hooks\KeyMouseHook\KeyMouseHook.h" />
-    <ClInclude Include="Memory\Hooks\LevelRenderPlayerUpdateCameraHook\LevelRenderPlayerUpdateCameraHook.h" />
+    <ClInclude Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.h" />
     <ClInclude Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.h" />
     <ClInclude Include="Memory\Hooks\MobGetCurrentSwingDurationHook\MobGetCurrentSwingDurationHook.h" />
     <ClInclude Include="Memory\Hooks\MobSetSprintingHook\MobSetSprintingHook.h" />
@@ -238,8 +238,8 @@
     <ClInclude Include="SDK\GameMode.h" />
     <ClInclude Include="SDK\GuiData.h" />
     <ClInclude Include="SDK\Level.h" />
-    <ClInclude Include="SDK\LevelRender.h" />
-    <ClInclude Include="SDK\LevelRenderPlayer.h" />
+    <ClInclude Include="SDK\LevelRenderer.h" />
+    <ClInclude Include="SDK\LevelRendererPlayer.h" />
     <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
     <ClInclude Include="SDK\Mob.h" />
     <ClInclude Include="SDK\Player.h" />
