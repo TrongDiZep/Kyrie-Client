@@ -10,8 +10,8 @@ class Actor;
 class Level {
 public:
 
-	std::vector<Actor*> getRuntimeActorList() {
-		return Utils::CallVFunc<291, std::vector<Actor*>>(this);
+	class std::vector<Actor*> getRuntimeActorList() {
+		return Utils::CallVFunc<297, class std::vector<Actor*>>(this);
 	}
 
 };
