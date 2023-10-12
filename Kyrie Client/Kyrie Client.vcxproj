@@ -147,6 +147,7 @@
     <ClCompile Include="Client\ModuleManager\Modules\Client\Arraylist\Arraylist.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Client\ClickGUI\ClickGui.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Client\Colors\Colors.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\CustomFont\CustomFont.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Client\HUD\HUD.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Client\Notifications\Notifications.cpp" />
     <ClCompile Include="Client\ModuleManager\Modules\Client\Unject\Unject.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Client\ModuleManager\Modules\Client\Arraylist\Arraylist.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Client\ClickGUI\ClickGui.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Client\Colors\Colors.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\CustomFont\CustomFont.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Client\HUD\HUD.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Client\Notifications\Notifications.h" />
     <ClInclude Include="Client\ModuleManager\Modules\Client\Unject\Unject.h" />

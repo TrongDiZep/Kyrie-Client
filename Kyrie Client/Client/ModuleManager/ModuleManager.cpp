@@ -19,6 +19,7 @@ ModuleManager::ModuleManager(Client* c) {
 		this->moduleList.emplace_back(new Arraylist());
 		this->moduleList.emplace_back(new ClickGui());
 		this->moduleList.emplace_back(new Colors());
+		this->moduleList.emplace_back(new CustomFont());
 		this->moduleList.emplace_back(new HUD());
 		this->moduleList.emplace_back(new Notifications());
 		this->moduleList.emplace_back(new Unject());

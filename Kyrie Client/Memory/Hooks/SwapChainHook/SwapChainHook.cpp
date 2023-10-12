@@ -84,7 +84,7 @@ HRESULT presentCallback(IDXGISwapChain3* pSwapChain, UINT syncInterval, UINT fla
 			ImGuiIO& io = ImGui::GetIO();
 			ImGui::StyleColorsDark();
 			io.Fonts->AddFontFromMemoryTTF((void*)Arial, sizeof(Arial), 50.f);
-			//io.Fonts->AddFontFromMemoryTTF((void*)Mojangles, sizeof(Mojangles), 50.f);
+			io.Fonts->AddFontFromMemoryTTF((void*)Mojangles, sizeof(Mojangles), 100.f);
 			io.IniFilename = NULL;
 
 			ImGui_ImplWin32_Init(window);

@@ -15,6 +15,7 @@
 #include "Modules/Client/Arraylist/Arraylist.h"
 #include "Modules/Client/ClickGUI/ClickGui.h"
 #include "Modules/Client/Colors/Colors.h"
+#include "Modules/Client/CustomFont/CustomFont.h"
 #include "Modules/Client/HUD/HUD.h"
 #include "Modules/Client/Notifications/Notifications.h"
 #include "Modules/Client/Unject/Unject.h"
